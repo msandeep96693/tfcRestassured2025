@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.*;
 
 import org.apache.http.auth.AUTH;
 
+import API.Payload.member_role_GetSet;
 import Login_access.login_token_access;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -41,6 +42,23 @@ public class member_Endpoints {
 		
 		return response;
 		
+	}
+	
+	public static Response updatemember_role(member_role_GetSet payload)
+	{
+		
+		
+			 Response response	= given()
+					 .auth().oauth2(login_token_access.token)
+					 .accept(ContentType.JSON)
+					 .contentType(ContentType.JSON)
+					 .body(payload)
+					 	 
+			.when()
+				.post(api_Routes.update_member_role);
+			 
+			return response;	
+			 
 	}
 
 }

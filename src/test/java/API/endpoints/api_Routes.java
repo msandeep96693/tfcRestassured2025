@@ -12,6 +12,11 @@ public class api_Routes {
 	public static String Get_view_member = Base_URI+"/members/view-member-profile?id=218";
 	public static String update_member_role = Base_URI+"/members/update-member-role";
 	
+	// ----------------------------- Mini club ---------------------------------------------
+	
+	public static String create_miniclub = Base_URI+"/miniclub/create-mini-club";
+	
+	
 	
 	
 	

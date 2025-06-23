@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-13T18:29:56 IST" name="Default suite" finished-at="2025-06-13T18:30:01 IST" duration-ms="4841">
+  <suite started-at="2025-06-23T18:35:22 IST" name="Default suite" finished-at="2025-06-23T18:35:26 IST" duration-ms="3639">
     <groups>
     </groups>
-    <test started-at="2025-06-13T18:29:56 IST" name="Default test" finished-at="2025-06-13T18:30:01 IST" duration-ms="4841">
-      <class name="API.Test.member_Test">
-        <test-method signature="Loginaccess_token()[pri:0, instance:API.Test.member_Test@61230f6a]" started-at="2025-06-13T18:29:56 IST" name="Loginaccess_token" finished-at="2025-06-13T18:29:59 IST" duration-ms="3539" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Loginaccess_token -->
-        <test-method signature="Testlistofmember()[pri:1, instance:API.Test.member_Test@61230f6a]" started-at="2025-06-13T18:29:59 IST" name="Testlistofmember" finished-at="2025-06-13T18:30:00 IST" duration-ms="598" status="FAIL">
-          <exception class="org.json.JSONException">
+    <test started-at="2025-06-23T18:35:22 IST" name="Default test" finished-at="2025-06-23T18:35:26 IST" duration-ms="3639">
+      <class name="API.Test.miniclub_Test">
+        <test-method signature="create_miniclub()[pri:0, instance:API.Test.miniclub_Test@418e7838]" started-at="2025-06-23T18:35:22 IST" name="create_miniclub" finished-at="2025-06-23T18:35:23 IST" duration-ms="951" status="FAIL">
+          <exception class="java.lang.IllegalArgumentException">
             <message>
-              <![CDATA[JSONObject["data"] not found.]]>
+              <![CDATA[accessToken cannot be null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.json.JSONException: JSONObject["data"] not found.
-at org.json.JSONObject.get(JSONObject.java:570)
-at org.json.JSONObject.getJSONObject(JSONObject.java:780)
-at API.Test.member_Test.Testlistofmember(member_Test.java:37)
+              <![CDATA[java.lang.IllegalArgumentException: accessToken cannot be null
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:60)
+at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+at io.restassured.internal.common.assertion.AssertParameter.notNull(AssertParameter.groovy:26)
+at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallStatic(CallSiteArray.java:53)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callStatic(AbstractCallSite.java:217)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callStatic(AbstractCallSite.java:240)
+at io.restassured.internal.AuthenticationSpecificationImpl.oauth2(AuthenticationSpecificationImpl.groovy:158)
+at io.restassured.specification.AuthenticationSpecification$oauth2.callCurrent(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:194)
+at io.restassured.internal.AuthenticationSpecificationImpl.oauth2(AuthenticationSpecificationImpl.groovy:151)
+at API.endpoints.miniclub_Endpoints.createminiclub(miniclub_Endpoints.java:21)
+at API.Test.miniclub_Test.create_miniclub(miniclub_Test.java:36)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -49,15 +64,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.json.JSONException -->
+          </exception> <!-- java.lang.IllegalArgumentException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Testlistofmember -->
-        <test-method signature="Testviewmember()[pri:2, instance:API.Test.member_Test@61230f6a]" started-at="2025-06-13T18:30:00 IST" name="Testviewmember" finished-at="2025-06-13T18:30:01 IST" duration-ms="622" status="PASS">
+        </test-method> <!-- create_miniclub -->
+        <test-method signature="Loginaccess_token()[pri:0, instance:API.Test.miniclub_Test@418e7838]" started-at="2025-06-23T18:35:23 IST" name="Loginaccess_token" finished-at="2025-06-23T18:35:26 IST" duration-ms="2620" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Testviewmember -->
-      </class> <!-- API.Test.member_Test -->
+        </test-method> <!-- Loginaccess_token -->
+      </class> <!-- API.Test.miniclub_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
