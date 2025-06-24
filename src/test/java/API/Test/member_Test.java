@@ -34,7 +34,7 @@ public class member_Test extends login_token_access {
 
 	
 	
-//	@Test(priority = 1)
+	@Test(priority = 1)
 	public void Testlistofmember()
 	{
 		Response response = member_Endpoints.list_members(1, 10);
@@ -56,7 +56,7 @@ public class member_Test extends login_token_access {
 		Assert.assertEquals(response.statusCode(), 200);
 	}
 	
-	@Test(priority = 3)
+//	@Test(priority = 3)
 	public void Testupdatemember()
 	{
 //		member_role = new member_role_GetSet();

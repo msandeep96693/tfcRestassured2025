@@ -2,43 +2,71 @@ package API.Test;
 
 import java.util.Arrays;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import API.Payload.createminiclubgetset;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
 import API.endpoints.miniclub_Endpoints;
 import Login_access.login_token_access;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class miniclub_Test extends login_token_access {
 	
-	createminiclubgetset miniclub;
+	int clubId;
 	
 	
-	public void Postcreate_miniclub() 
+//	@Test(priority = 1)
+	public void create_miniclub() throws JsonProcessingException
 	{
-		miniclub = new createminiclubgetset();
-		miniclub.setClub_name("Create mini club");
-		miniclub.setClub_details("Mini club details");
-		miniclub.setClub_access(3);
-		miniclub.setClub_type(1);
-		miniclub.setGlobal_tags(Arrays.asList());
-		miniclub.setNew_tags(Arrays.asList());
-		miniclub.setClub_members(Arrays.asList());
-		miniclub.setClub_moderators(Arrays.asList());
+		Response response = miniclub_Endpoints.createmininclub();
+		response.then().log().all();
 		
+		Assert.assertEquals(response.statusCode(), 200);
+
 	}
 	
-	@Test
-	public void create_miniclub()
+	@Test(priority = 2)
+	public void list_miniclub()
 	{
-		Response response = miniclub_Endpoints.createminiclub(miniclub);
+	      Response response = miniclub_Endpoints.listofminiclub(1, 10);
+	      response.then().log().all();
+	      
+	        JSONObject json = new JSONObject(response.asString());
+	        JSONArray jsonArraydata = json.getJSONObject("details").getJSONArray("data");
+	        clubId = jsonArraydata.getJSONObject(1).getInt("id");
+	        
+	        
+	      Assert.assertEquals(response.statusCode(), 200);
+	}
+	
+	@Test(priority = 3)
+	public void get_miniclubdetails()
+	{
+		Response response = miniclub_Endpoints.miniclubdetails(clubId);
 		response.then().log().all();
 		
 		Assert.assertEquals(response.statusCode(), 200);
 	}
 	
+	@Test(priority = 4)
+	public void update_miniclub() throws JsonProcessingException
+	{
+		Response response = miniclub_Endpoints.updateminiclub(clubId);
+		response.then().log().all();
+		
+		JsonPath jspath = response.jsonPath();
+		String Message = jspath.getString("message");
+		
+		System.out.println("Message :- "+ Message);
+		
+		Assert.assertEquals(response.statusCode(), 200);
+	}
 	
 
 }

@@ -5,7 +5,7 @@
     <classes>
       <class name="API.Test.miniclub_Test">
         <methods>
-          <include name="create_miniclub"/>
+          <include name="get_miniclubdetails"/>
         </methods>
       </class> <!-- API.Test.miniclub_Test -->
     </classes>

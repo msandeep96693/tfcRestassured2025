@@ -16,6 +16,8 @@ public class member_Endpoints {
 	
 	public static Response list_members(int page_number, int page_Size)
 	{
+		
+		System.out.println("Access token :- "+login_token_access.token);
 		Response response = given()
 		.auth().oauth2(login_token_access.token)
 		.accept(ContentType.JSON)
