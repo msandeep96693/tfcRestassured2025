@@ -1,6 +1,5 @@
 package API.Test;
 
-import java.util.Arrays;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -8,8 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import API.endpoints.miniclub_Endpoints;
 import Login_access.login_token_access;
@@ -39,7 +36,7 @@ public class miniclub_Test extends login_token_access {
 	      
 	        JSONObject json = new JSONObject(response.asString());
 	        JSONArray jsonArraydata = json.getJSONObject("details").getJSONArray("data");
-	        clubId = jsonArraydata.getJSONObject(1).getInt("id");
+	        clubId = jsonArraydata.getJSONObject(0).getInt("id");
 	        
 	        
 	      Assert.assertEquals(response.statusCode(), 200);
@@ -60,6 +57,7 @@ public class miniclub_Test extends login_token_access {
 		Response response = miniclub_Endpoints.updateminiclub(clubId);
 		response.then().log().all();
 		
+//		validation of response message using json path
 		JsonPath jspath = response.jsonPath();
 		String Message = jspath.getString("message");
 		

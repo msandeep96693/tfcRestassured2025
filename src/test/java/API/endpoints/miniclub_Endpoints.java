@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.*;
 import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -97,25 +98,28 @@ public class miniclub_Endpoints {
 			    }}
 			);
 		
+		File imagefile = new File("/home/active34/photos/security.jpeg");
+		File clubicon = new File("/home/active34/photos/happy.png");
+		
 		Response response = given()
 				.auth().oauth2(login_token_access.token)
 				.accept(ContentType.JSON)
 				.contentType(ContentType.MULTIPART)
 				.multiPart("mini_club_id",miniclubid)
-				.multiPart("club_name","update miniclub")
-				.multiPart("club_details","update miniclub details")
+				.multiPart("club_name","create miniclub")
+				.multiPart("club_details","create miniclub details")
 				.multiPart("club_access","1")
 				.multiPart("club_type","2")
 				.multiPart("global_tags","[1,2,3,13082,13083]")
 				.multiPart("new_tags",new ObjectMapper().writeValueAsString(newTags2))
 				.multiPart("club_members","[201,218]")
 				.multiPart("club_moderators", "[201,218]")
+				.multiPart("file", imagefile)
+				.multiPart("miniclub_icon", clubicon)
 				
 			.when()
 				.put(api_Routes.update_miniclub);
 				
-				
-		
 		return response;
 		
 	}
