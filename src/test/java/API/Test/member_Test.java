@@ -17,24 +17,29 @@ import io.restassured.response.Response;
 
 public class member_Test extends login_token_access {
 	
-	member_role_GetSet member_role;
+	public member_role_GetSet member_role;
 	int Member_id;
 	
-	@BeforeMethod
-	public void Postmember_role()
-	{
-		member_role = new member_role_GetSet();
-		member_role.setMember_id(218);
-		List<String> roles = new ArrayList<>();
-	    roles.add("2");
-	    roles.add("3");
-
-		member_role.setRole_ids(roles);
-	}
+//	@BeforeMethod
+//	public void Postmember_role()
+//	{
+//		member_role = new member_role_GetSet();
+//		member_role.setMember_id(229);
+//		
+//		
+//		member_role.setRole_ids("[2,3]");
+		
+		
+//		List<String> roles = new ArrayList<>();
+//	    roles.add("2");
+//	    roles.add("3");
+//
+//		member_role.setRole_ids(roles);
+//	}
 
 	
 	
-	@Test(priority = 1)
+//	@Test(priority = 1)
 	public void Testlistofmember()
 	{
 		Response response = member_Endpoints.list_members(1, 10);
@@ -56,18 +61,15 @@ public class member_Test extends login_token_access {
 		Assert.assertEquals(response.statusCode(), 200);
 	}
 	
-//	@Test(priority = 3)
+	@Test(priority = 3)
 	public void Testupdatemember()
 	{
-//		member_role = new member_role_GetSet();
-//		member_role.setMember_id(218);
-//		List<String> roles = new ArrayList<>();
-//		    roles.add("2");
-//		    roles.add("3");
-//		    
-//		    member_role.setRole_ids(roles);
+		member_role = new member_role_GetSet();
+		member_role.setMember_id(229);
+		member_role.setRole_ids("[2,3]");
 		
 		
+		System.out.println("Payload data =="+ member_role);
 		Response response = member_Endpoints.updatemember_role(member_role);
 		response.then().log().all();
 		

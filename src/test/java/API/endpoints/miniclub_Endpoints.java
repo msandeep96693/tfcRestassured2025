@@ -15,9 +15,11 @@ import javax.mail.Multipart;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import API.Payload.addmember_GetSet;
 import Login_access.login_token_access;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 public class miniclub_Endpoints {
 	
@@ -124,6 +126,24 @@ public class miniclub_Endpoints {
 		
 	}
 
+	
+	public static Response addmemberintominiclub(addmember_GetSet payload)
+	{
+
+		System.out.println("PAYLOAD :- "+ payload);
+		Response response = given()
+				 .auth().oauth2(login_token_access.token)
+				 .accept(ContentType.JSON)
+				 .contentType(ContentType.JSON)
+				 .body(payload)
+				 
+				 
+			.when()
+				.post(api_Routes.add_member);
+						 
+		return response;
+		
+	}
 }
 
 

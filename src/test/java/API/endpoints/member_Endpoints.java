@@ -48,16 +48,15 @@ public class member_Endpoints {
 	
 	public static Response updatemember_role(member_role_GetSet payload)
 	{
-		
-		
+		System.out.println("PAYLOAD :- "+payload);
 			 Response response	= given()
 					 .auth().oauth2(login_token_access.token)
 					 .accept(ContentType.JSON)
-					 .contentType(ContentType.JSON)
+					 .contentType("application/json")
 					 .body(payload)
 					 	 
 			.when()
-				.post(api_Routes.update_member_role);
+				.put(api_Routes.update_member_role);
 			 
 			return response;	
 			 

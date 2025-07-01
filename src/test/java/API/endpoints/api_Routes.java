@@ -17,8 +17,9 @@ public class api_Routes {
 	public static String create_miniclub = Base_URI+"/miniclub/create-mini-club";
 	public static String list_miniclub = Base_URI+"/miniclub/list-miniclubs?page_num=1&page_size=10";
 	public static String Get_miniclubdetails = Base_URI+"/miniclub/get-miniclub-detail";
-	
 	public static String update_miniclub = Base_URI+"/miniclub/update-miniclub";
+	
+	public static String add_member = Base_URI+"/miniclub/add-members";
 	
 	
 	

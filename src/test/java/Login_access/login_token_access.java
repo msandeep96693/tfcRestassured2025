@@ -13,7 +13,7 @@ import io.restassured.response.Response;
 
 public class login_token_access 
 {
-	Response response;
+	public Response response;
 	public static String token;
 	
 	@Test
