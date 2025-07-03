@@ -15,8 +15,8 @@ import javax.mail.Multipart;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import API.Login_access.login_token_access;
 import API.Payload.addmember_GetSet;
-import Login_access.login_token_access;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -60,8 +60,6 @@ public class miniclub_Endpoints {
 	{
 		Response response = given()
 				.auth().oauth2(login_token_access.token)
-				.accept(ContentType.JSON)
-				.contentType(ContentType.JSON)
 				.queryParam("page_num", pagenum)
 				.queryParam("page_size", pagesize)
 				
@@ -76,8 +74,6 @@ public class miniclub_Endpoints {
 	{
 		Response response = given()
 				.auth().oauth2(login_token_access.token)
-				.accept(ContentType.JSON)
-				.contentType(ContentType.JSON)
 				.queryParam("mini_club_id", miniclubID)
 				
 				.when()
@@ -99,6 +95,9 @@ public class miniclub_Endpoints {
 			        put("is_selected", true);
 			    }}
 			);
+		
+		
+		
 		
 		File imagefile = new File("/home/active34/photos/security.jpeg");
 		File clubicon = new File("/home/active34/photos/happy.png");
@@ -133,14 +132,35 @@ public class miniclub_Endpoints {
 		System.out.println("PAYLOAD :- "+ payload);
 		Response response = given()
 				 .auth().oauth2(login_token_access.token)
-				 .accept(ContentType.JSON)
-				 .contentType(ContentType.JSON)
+				 .accept("application/json")
+				 .contentType("application/json")
 				 .body(payload)
-				 
 				 
 			.when()
 				.post(api_Routes.add_member);
 						 
+		return response;
+		
+	}
+	
+	public static Response removeminiclubmembers()
+	{
+		List<Integer> ids = Arrays.asList(201,218,207);
+		System.out.println("ID :-"+ ids.toString());
+		
+		Response response = given()
+				.auth().oauth2(login_token_access.token)
+				.accept(ContentType.JSON)
+				.contentType(ContentType.JSON)
+//				.queryParam("mini_club_id", miniclubID)
+//				.queryParam("member_ids", ids.toString())
+				
+			.when()
+				.delete(api_Routes.remove_miniclub_member);
+		
+//		System.out.println("Endpoint path :-"+ api_Routes.remove_miniclub_member);
+		
+//		System.out.println("Token :- "+ login_token_access.token);
 		return response;
 		
 	}

@@ -6,8 +6,8 @@ import static org.hamcrest.Matchers.*;
 
 import org.apache.http.auth.AUTH;
 
+import API.Login_access.login_token_access;
 import API.Payload.member_role_GetSet;
-import Login_access.login_token_access;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -20,7 +20,6 @@ public class member_Endpoints {
 		System.out.println("Access token :- "+login_token_access.token);
 		Response response = given()
 		.auth().oauth2(login_token_access.token)
-		.accept(ContentType.JSON)
 		.queryParam("page_num", page_number)
 		.queryParam("page_size", page_Size)
 		
@@ -36,7 +35,6 @@ public class member_Endpoints {
 	{
 		Response response = given()
 		.auth().oauth2(login_token_access.token)
-		.accept(ContentType.JSON)
 		.queryParam("id", ID)
 		
 		.when()

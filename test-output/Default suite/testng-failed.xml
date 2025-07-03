@@ -5,7 +5,7 @@
     <classes>
       <class name="API.Test.member_Test">
         <methods>
-          <include name="Testupdatemember"/>
+          <include name="Testlistofmember"/>
         </methods>
       </class> <!-- API.Test.member_Test -->
     </classes>

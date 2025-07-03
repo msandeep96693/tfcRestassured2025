@@ -1,4 +1,4 @@
-package Login_access;
+package API.Login_access;
 
 import java.util.HashMap;
 
@@ -33,7 +33,8 @@ public class login_token_access
 		hashmap.put("wallet_address", "string");
 		
 		Response response = given()
-					.contentType(ContentType.JSON)
+//					.contentType(ContentType.JSON)
+					.contentType("application/json")
 					.body(hashmap)
 		
 		.when()

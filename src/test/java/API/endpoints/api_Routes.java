@@ -15,11 +15,25 @@ public class api_Routes {
 	// ----------------------------- Mini club ---------------------------------------------
 	
 	public static String create_miniclub = Base_URI+"/miniclub/create-mini-club";
-	public static String list_miniclub = Base_URI+"/miniclub/list-miniclubs?page_num=1&page_size=10";
+	public static String list_miniclub = Base_URI+"/miniclub/list-miniclubs";
 	public static String Get_miniclubdetails = Base_URI+"/miniclub/get-miniclub-detail";
 	public static String update_miniclub = Base_URI+"/miniclub/update-miniclub";
 	
-	public static String add_member = Base_URI+"/miniclub/add-members";
+	public static String remove_miniclub_member = Base_URI+"/miniclub/remove-mini-club-members";  // api fails
+	
+	
+	public static String add_member = Base_URI+"/miniclub/add-members";  // api fails
+	
+	// ---------------------------- Incentives pending -----------------------------------------------
+	
+	public static String create_incentive = Base_URI+"/incentive/create-incentive";
+	public static String list_incentives = Base_URI+"/incentive/list-incentive?page_num=1&page_size=10";
+	public static String Get_incentivesDetails = Base_URI+"/incentive/get-incentive-detail?incentive_id=15";                                                                                    
+	public static String update_incentives = Base_URI+"/incentive/update-incentive";
+	public static String delete_incentives = Base_URI+"/incentive/delete-incentive?incentive_id=4342&is_expired=false";
+	
+	
+	
 	
 	
 	
